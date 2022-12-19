@@ -1,0 +1,161 @@
+*{/*reset do css*/
+    margin: 0;/*tirar as margins padrões */
+    padding: 0;/*tirar o preenchimento das caixas padriões*/
+    box-sizing: border-box;/*considera apenas o tamanho que eu estipular,
+    da caixa/**/
+}
+ul{
+    list-style: none;/*tirar os pontinhos da lista*/
+}
+body{
+    background-image: url(./assets/bg.jpg);
+    background-position: top center;/*posição da img*/
+    background-size: 100%,auto;/*na orizontal ela sempre vai ficar na mesma posição, e na vertical ela vai se adaptar com
+    o tamanho da tela*/
+    background-repeat: no-repeat;/*para não ficar repetindo a img*/
+    background-color: #121214;/*cor e hexa-decimal, 
+    dois primeiros numeros=>vermelho
+    os otros dois numeros=> verde
+    ultimos dois=> azul*/
+}
+
+body *{
+    font-family: 'Inter','sans-serif';
+    line-height: 160%;/*altura da linha=>espaço entre as fontes*/
+}
+
+
+
+main{
+    max-width: 580px;
+    width: 90%;/*relativo a largura da tela, min*/
+    margin: auto;/*centralizar todo o conteúdo, e manter a margen de 90%
+    quando a tela for diminuida*/
+    display: grid;/*manter as section uma em baixo da outra*/
+    gap:24px; /*fazer com que tenha espaço entre as sections*/
+    margin-top: 32px;
+    margin-bottom: 44px;/*margin de baixo, para a ultima*/
+}
+
+section{
+    color: #FFFFFF;/*white*/
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);/*background=img é para trabalhar com gradient*/
+    padding-top: 4px;
+    border-radius: 14px;
+}
+section div{
+    background-color: #2A2634;
+    padding: 32px;/*preenchimento interno da box, ou, margem dos elementos entre a div*/
+    padding-top: 24px;
+    border-radius: 8px;
+   
+}
+/*a configurações que o proprio nav coloca como padrão, esse tipo de configuração,
+pode ser descartada*/
+section h2{
+    letter-spacing: -0.47px;/*espaço entre as letras*/
+}
+
+section p{
+
+letter-spacing: -0.18px;
+color: #A1A1AA;
+}
+
+ul{
+    display: flex ;/*tipo visualização das caixas/elementos (nesse caso ele deixa os elementos
+    da lista um no lado do outro)*/
+    flex-wrap: wrap;/*se colocar mais elmentos, na lista, ele vai colocar esses elementos em baixo e não um do lado do outro infinitamente*/
+    /*display: block e line tem a ver com as caixas dentro das caixas, ou seja, os elementos da lista
+    display:flex tem a ver a caixa que contem esses elementos, ou seja, a lista*/
+    gap: 16px;/*espaço entre os elementos do display*/
+    margin-top: 24px;/*margin entre os textos e as img de cada section*/
+}
+
+li{
+    transition: transform .3s;
+}
+li:hover{
+    transform: scale(1.1);
+}
+
+.game_list img{
+    width: 90px;
+/*height: 200px;*/
+border-radius: 8px;
+}
+
+.channel-list img{
+    width: 70px;
+    border-radius: 999px;/*é igual 50%*/
+    border: 1px solid #443E54;
+}
+
+header{
+    padding-top: 32;
+}
+header div{
+   width: 120px;
+   margin: auto;
+   /*cor da borda da foto de perfil*/
+   background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+   border-radius: 50%;/*=> equivalente a 999px*/
+   display: flex;/*centraliza a borda atrás da foto*/
+   padding: 2px;/*tamanho da borda*/
+
+   transition: transform .3s;/*forma um semi-circulo antes de carregar*/
+}
+header div:hover{/*quando passa o mouse*/
+    transform: scale(1.1);/*aumenta minha foto*/
+}
+
+header img{
+   width: 100%;
+    border-radius: 999px;
+
+}
+/*Animation*/
+header div {
+    animation: fromTop .7s .2s backwards;
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1) {
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: .3s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .6s;
+}
+/*É aqui que a magia acontece*/
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
